@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.7.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.7.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
 	<name>${ant.project.name}</name>
     <channel>${pear.channel}</channel>
 	<summary>Provides stream wrapper functionality for PHP 5.1 or later</summary>
@@ -28,7 +29,7 @@
 		<api>${api.stability}</api>
 	</stability>
 	<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
-	<notes>- Refactoring to separize apc methods</notes>
+	<notes>Switching to pear.appserver.io/library PEAR channel</notes>
 	<contents>
 		<dir name="/"/>
 	</contents>
@@ -45,7 +46,22 @@
 	</dependencies>
 	<phprelease/>
 	<changelog>
-        <release>
+        <release xmlns="">
+                    <version>
+                        <release>0.1.4</release>
+                        <api>0.1.0</api>
+                    </version>
+                    <stability>
+                        <release>beta</release>
+                        <api>beta</api>
+                    </stability>
+                    <date>2014-02-04</date>
+                    <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GPL, version 2.0</license>
+                    <notes>
+                        Switching to pear.appserver.io/library PEAR channel
+                    </notes>
+                </release>
+<release>
                     <version>
                         <release>0.1.3</release>
                         <api>0.1.0</api>

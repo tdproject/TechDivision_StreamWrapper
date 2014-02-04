@@ -70,61 +70,61 @@
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="channel-discover" />
-            <arg value="connect.techdivision.com" />
+            <arg value="pear.appserver.io/library" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_Generator" />
+            <arg value="library/TechDivision_Generator" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_XHProfPHPUnit" />
+            <arg value="library/TechDivision_XHProfPHPUnit" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_PEAR" />
+            <arg value="library/TechDivision_PEAR" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_Lang" />
+            <arg value="library/TechDivision_Lang" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_Util" />
+            <arg value="library/TechDivision_Util" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_Collections" />
+            <arg value="library/TechDivision_Collections" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_Logger" />
+            <arg value="library/TechDivision_Logger" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_HttpUtils" />
+            <arg value="library/TechDivision_HttpUtils" />
         </exec>
         <exec dir="${pear.dir}" executable="${pear.bin}">
             <arg value="-c" />
             <arg value="${pear.dir}/pear.conf" />
             <arg value="install" />
-            <arg value="techdivision/TechDivision_Resources" />
+            <arg value="library/TechDivision_Resources" />
         </exec>
     </target>
     <!-- ==================================================================== -->
@@ -271,8 +271,9 @@
     <target name="upload-release" >
         <echo message="Releasing ${namespace}_${module}-${release.version}.tgz on ${pear.channel}..."/>
     	<exec executable="${curl.bin}"  outputproperty="exec.response">
-			<arg line='-F hash="${pear.api.hash}" -F qqfile=@"${php-target.dir}/${namespace}-${release.version}.tgz" -s http://${pear.channel}/upload'/>
+			<arg line='-F hash="${pear.api.hash}" -F qqfile=@"${php-target.dir}/${namespace}_${module}-${release.version}.tgz" -s http://${pear.channel}/upload'/>
 		</exec>
+		<echo>${exec.response}</echo>
     </target>
     <!-- ==================================================================== -->
     <!-- Release new patch version                                            -->
@@ -316,6 +317,9 @@
         <exec executable="${git.bin}" dir="${basedir}">
             <arg line="commit -a -m '${release.changelog}'" />
         </exec>
+		<exec executable="${git.bin}" dir="${basedir}">
+			<arg line="push" />
+		</exec>
         <exec executable="${git.bin}" dir="${basedir}">
             <arg line="tag -a -m '${release.changelog}' release-${tag.release.version}" />
         </exec>
