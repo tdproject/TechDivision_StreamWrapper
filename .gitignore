@@ -1,4 +1,6 @@
 /.settings
 /.buildpath
 /.project
+/target
+/pear-src
 /build.properties
